@@ -8,21 +8,21 @@ enum TypeCell
 class Board 
 {
   //Déclaration des attributs de la classe.
-  TypeCell _cells[][]; //S'en servir. Matrice de cellules.
+  TypeCell _cells[][]; 
   PVector _position;
   int _nbCellsX;
   int _nbCellsY;
   int _cellSize; // cells should be square
   
-  Board(PVector position, int nbCellsX, int nbCellsY, int cellSize) {
+  Board(PVector position, int nbCellsX, int nbCellsY) {
     _nbCellsX = nbCellsX;
     _nbCellsY = nbCellsY;
-    _cellSize = cellSize;
+    _cellSize = CELL_SIZE;
     _position = position;
   }
   
-  PVector getCellCenter(int i, int j) {
-    return null;
+  PVector getCellCenter(int i, int j) { 
+    return new PVector(i*_cellSize + _cellSize/2, j*_cellSize + _cellSize/2);
   }
   
   void drawIt() {
@@ -67,7 +67,7 @@ class Board
     for(int i=0;i<_nbCellsX;i++){
       for(int j=0;j<_nbCellsY;j++){
 
-        print(_cells[i][j]);
+        //print(_cells[i][j]);
         switch(_cells[i][j]){
           case EMPTY :
             noStroke();
