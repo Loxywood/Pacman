@@ -26,12 +26,24 @@ class Hero {
     _moving = true;
     _direction = dir;
   }
-  
+
   void move(Board board) {
-    if (_moving) {
-      int vitesse = 2; // pixels par frame
-      _position.x += _direction.x * vitesse;
-      _position.y += _direction.y * vitesse;
+    //Pour que PacMan se déplace.
+
+    if (_moving != false) {
+
+      // Case sur laquelle on veut se déplacer :
+      int nvCellX = _cellX + int(_direction.x);
+      int nvCellY = _cellY + int(_direction.y);
+
+      //D'abord vérifier qu'on ne se déplace pas sur un mur :
+      if (board._cells[nvCellX][nvCellY] != TypeCell.WALL) {
+        _cellX = nvCellX;
+        _cellY = nvCellY;
+      }
+
+      //Maintenant on déplace PacMan :
+      _position = board.getCellCenter(_cellX, _cellY);
     }
   }
   

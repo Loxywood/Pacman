@@ -90,10 +90,7 @@ class Board
             circle(i*_cellSize+_cellSize/2,j*_cellSize+_cellSize/2,20);
             break;
           case PACMAN :
-            noStroke();
-            fill(255,255,0);
-            circle(i*_cellSize+_cellSize/2,j*_cellSize+_cellSize/2,30);
-            break;
+          break;
         } 
         
       }

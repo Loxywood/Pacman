@@ -10,7 +10,6 @@ class Game
     _hero = new Hero();
   }
   
-  //Met à jour la fenêtre de jeu à chaque frame. 
   void update() {
     _hero.move(_board);
   }
