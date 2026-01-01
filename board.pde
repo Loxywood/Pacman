@@ -4,29 +4,29 @@ enum TypeCell
   EMPTY, WALL, DOT, SUPER_DOT, PACMAN // others ?
 }
 
-//Classe plateau
+//Cette classe sert à gérer tous les détails relatifs au plateau.
 class Board 
 {
-  //Déclaration des attributs de la classe.
-  TypeCell _cells[][]; 
-  PVector _position;
-  int _nbCellsX;
-  int _nbCellsY;
-  int _cellSize; // cells should be square
+
+  //Déclaration des attributs du plateau.
+  TypeCell _cells[][]; //Matrice qui recense le type de chaque cellule.
+  PVector _position;   //Position à laquelle on commence à dessiner le plateau
+  int _nbCellsX;       //Nombre de cellules à l'horizontale.
+  int _nbCellsY;       //Nombre de cellules à la verticale.
+  int _cellSize;       //Taille des cellules.
   
+  //Constructeur pour initialiser le plateau.
   Board(PVector position, int nbCellsX, int nbCellsY) {
     _nbCellsX = nbCellsX;
     _nbCellsY = nbCellsY;
     _cellSize = CELL_SIZE;
     _position = position;
+    boardInitialization();
   }
-  
-  PVector getCellCenter(int i, int j) { 
-    return new PVector(i*_cellSize + _cellSize/2, j*_cellSize + _cellSize/2);
-  }
-  
-  void drawIt() {
-  
+
+  //Pour initialiser le plateau.
+  void boardInitialization() {
+
     //Génère un tableau dont les lignes sont composées des lignes du fichier level1.txt
     String[] lines = loadStrings("levels/level1.txt");
     if (lines == null) {
@@ -61,7 +61,15 @@ class Board
 
       }
     }
-    //Maintenant que _cells est rempli, on dessin la grille.
+  }
+  
+  //Pour récupérer le centre d'une cellule donnée.
+  PVector getCellCenter(int i, int j) { 
+    return new PVector(i*_cellSize + _cellSize/2, j*_cellSize + _cellSize/2);
+  }
+
+  //Cette fonction va dessiner le plateau.
+  void drawIt() {
 
     strokeWeight(1);
     for(int i=0;i<_nbCellsX;i++){
