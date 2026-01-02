@@ -4,6 +4,7 @@ class Hero {
   PVector _posOffset;
   // position on board
   int _cellX, _cellY;
+  float _offsetX, _offsetY;
   // display size
   float _size;
   
@@ -12,9 +13,11 @@ class Hero {
   boolean _moving; // is moving ? 
     
   Hero() {
+    _offsetX = width/2 - (23*CELL_SIZE)/2;
+    _offsetY = height/2 - (22*CELL_SIZE)/2;
     _cellX = 11; //Position en X sur le plateau.
     _cellY = 12; //Position en Y sur le tableau.
-    _position = new PVector(_cellX * CELL_SIZE + CELL_SIZE / 2, _cellY * CELL_SIZE + CELL_SIZE / 2);
+    _position = new PVector(_cellX * CELL_SIZE + CELL_SIZE / 2 + _offsetX, _cellY * CELL_SIZE + CELL_SIZE / 2 + _offsetY);
     _posOffset = new PVector(0,0); //
     _size = CELL_SIZE * 0.8; //Taille de PacMan
     _direction = new PVector(0,0);
@@ -41,6 +44,11 @@ class Hero {
         _cellX = nvCellX;
         _cellY = nvCellY;
       }
+      if (_cellX == 0 && _direction.x == -1) {
+        _cellX = board._nbCellsX -1;
+      } else if (_cellX == board._nbCellsX -1 && _direction.x == 1) {
+        _cellX = 0;
+      }
 
       //Maintenant on déplace PacMan :
       _position = board.getCellCenter(_cellX, _cellY);
@@ -53,4 +61,5 @@ class Hero {
     noStroke();
     ellipse(_position.x, _position.y, _size, _size);
   }
+
 }
