@@ -27,12 +27,11 @@ void keyPressed() {
 
   if (key == ESC) {
     key = 0;
-    game.TriggerMenu();
-    return;
   }
   game.handleKey(key);
   //menu.handleKey(key);
 }
  //Gère les entyrées souris.
 void mousePressed() {
+  game.handleMouse();
 }

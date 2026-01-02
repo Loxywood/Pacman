@@ -12,10 +12,10 @@ class Hero {
   boolean _moving; // is moving ? 
     
   Hero() {
-    _position = new PVector(11 * CELL_SIZE + CELL_SIZE / 2, 16 * CELL_SIZE + CELL_SIZE / 2);
-    _posOffset = new PVector(0,0); //
     _cellX = 11; //Position en X sur le plateau.
-    _cellY = 10; //Position en Y sur le tableau.
+    _cellY = 12; //Position en Y sur le tableau.
+    _position = new PVector(_cellX * CELL_SIZE + CELL_SIZE / 2, _cellY * CELL_SIZE + CELL_SIZE / 2);
+    _posOffset = new PVector(0,0); //
     _size = CELL_SIZE * 0.8; //Taille de PacMan
     _direction = new PVector(0,0);
     _moving = false;

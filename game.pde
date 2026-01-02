@@ -78,6 +78,21 @@ class Game
       case 'd' :
         _hero.launchMove(new PVector(1,0));
         break;
+      case 0 :
+        TriggerMenu();
+        break;
+    }
+  }
+
+  //Appelée quand une touche de la souris est préssée.
+  void handleMouse() {
+    if (_state == GameState.MENU) { //Si le jeu est sur le menu 
+      for (Bouton b : _menu._liste_boutons) {
+        if (b.overButton()) {
+          b._couleur = color(0,255,255);
+          break;
+        }
+      }
     }
   }
 
