@@ -33,10 +33,12 @@ Bouton[] _liste_boutons;
     //Uncomment the following two lines to see the available fonts 
     myFont = createFont("Upheaval TT -BRK-",32);
     textFont(myFont);
-    fill(255); // Set text color to white
-    textSize(32); // Set text size
-    textAlign(CENTER, CENTER); // Center the text
-    text("Menu Pause", width/2, height/2);
+    textSize(128);
+    fill(0,0,255);
+    text("Pac-Man",width/2+5,height/4+5);
+    fill(255,255,0);
+    text("Pac-Man", width/2, height/4);
+    textSize(32);
 
     _restart.drawIt();
     _save.drawIt();

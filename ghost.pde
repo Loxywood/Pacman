@@ -3,7 +3,9 @@ class Ghost {
     // position on board
     int _cellX, _cellY;
     PVector _position;
-    PVector _posOffset;
+    float _offsetX = 0;
+    float _offsetY = 0;
+    //PVector _posOffset;
 
     // display size
     float _size;
@@ -15,10 +17,14 @@ class Ghost {
     Ghost[] ghost_list;
 
     Ghost (int cellX, int cellY){
+
+        _offsetX = width/2 - (23*CELL_SIZE)/2;
+        _offsetY = height/2 - (22*CELL_SIZE)/2;
+
         _cellX = cellX;
         _cellY = cellY;
-        _position = new PVector(cellX*CELL_SIZE+CELL_SIZE/2,cellY*CELL_SIZE+CELL_SIZE/2);
-        _posOffset = new PVector(0,0);
+        _position = new PVector(cellX*CELL_SIZE+CELL_SIZE/2+_offsetX,cellY*CELL_SIZE+CELL_SIZE/2+_offsetY);
+        //_posOffset = new PVector(0,0);
         _direction = new PVector(0,0);
         _ghost_sprite = createImage(CELL_SIZE,CELL_SIZE,ARGB);
         _size = 1;

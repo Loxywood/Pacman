@@ -19,6 +19,8 @@ class Bouton {
 
     //Dessin du bouton !
     void drawIt() {
+      fill(0,0,255);
+      rect(_position.x+5,_position.y+5,_width,_height);
       fill(_couleur);
       rect(_position.x, _position.y, _width, _height);
       fill(0);

@@ -1,19 +1,23 @@
 //Programme principal.
 
-Game game;
 Board board;
+Hero hero;
 Menu menu;
 Ghost[] ghost_list;
 PImage img;
+Game game;
 
 //Met en place .
 void setup() {
-  img = loadImage("img/pacman_sprites.png");
-  background(0); //Fond en noir.
   fullScreen(); //Plein écran.
-  game = new Game(); //Initialisation de la partie.
-  menu = new Menu();
-  game._board.boardInitialization(); //Dessine le plateau de jeu
+  img = loadImage("img/pacman_sprites.png"); //Pour charger les spritees du jeu.
+  board = new Board(23, 22);                 //Initialisation du plateau. (23x22 cases.)
+  hero = new Hero();                         //Initialisation du héros (à voir comment on gère ça après.)
+  menu = new Menu();                         //Initialisation du menu.
+  game = new Game(board, hero,menu);         //Initialisation de la partie avec le plateau et le héros.
+  game._board.boardInitialization();         //Charge la matrice du plateau.
+
+    background(0); //Fond en noir.
 
   //Créer les fantômes.
   ghost_list = new Ghost[4];

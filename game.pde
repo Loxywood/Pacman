@@ -21,10 +21,10 @@ class Game
   Menu _menu;         //Chaque partie possède sa propre instance de menu.
 
   //Constructeur d'une partie.
-  Game() {
-    _board = new Board(23,22);
-    _hero = new Hero();
-    _menu = new Menu();
+  Game(Board board, Hero hero, Menu menu) {
+    _board = board;
+    _hero = hero;
+    _menu = menu;
     _state = GameState.MENU;
   }
   
