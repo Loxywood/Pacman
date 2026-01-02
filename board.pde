@@ -16,11 +16,11 @@ class Board
   int _cellSize;       //Taille des cellules.
   
   //Constructeur pour initialiser le plateau.
-  Board(PVector position, int nbCellsX, int nbCellsY) {
+  Board(int nbCellsX, int nbCellsY) {
     _nbCellsX = nbCellsX;
     _nbCellsY = nbCellsY;
     _cellSize = CELL_SIZE;
-    _position = position;
+    _position = new PVector(width/2 - (_nbCellsX * _cellSize)/2, height/2 - (_nbCellsY * _cellSize)/2);
     boardInitialization();
   }
 

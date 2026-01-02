@@ -19,11 +19,10 @@ class Game
   GameState _state;   //Le jeu possède aussi un état. Important pour afficher le menu.
   String _levelName;  // ?
   Menu _menu;         //Chaque partie possède sa propre instance de menu.
-  
 
   //Constructeur d'une partie.
   Game() {
-    _board = new Board(new PVector(0,0),23,22);
+    _board = new Board(23,22);
     _hero = new Hero();
     _menu = new Menu();
     _state = GameState.MENU;
@@ -44,7 +43,7 @@ class Game
 
     _board.drawIt(); //Dessin du plateau
     _hero.drawIt();  //Dessin du héros (sur le plateau du coup.)
-
+    
     //Néanmoins si l'état du jeu vaut MENU, on affiche le menu.
     if (_state == GameState.MENU) {
       _menu.drawIt();
